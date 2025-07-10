@@ -9,8 +9,6 @@
 </head>
 
 <body class="container mt-5">
-    <a href="javascript:history.back()" class="btn btn-secondary mt-3">← Back</a>
-
     <h1 class="text-center"> Project Management System</h1>
     <h2>Login</h2>
     <form method="post">
