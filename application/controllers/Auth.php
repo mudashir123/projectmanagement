@@ -18,6 +18,8 @@ class Auth extends CI_Controller {
                 redirect('dashboard');
             } else {
                 $data['error'] = 'Invalid login';
+                $this->load->view('auth/login', $data);
+                return;
             }
         }
         $this->load->view('auth/login');

@@ -10,11 +10,17 @@
 </head>
 
 <body class="container mt-5">
-    <h2>Dashboard</h2>
-    <p>Location: <?= isset($city) ? $city : 'Unknown' ?>, <?= isset($region) ? $region : 'Unknown' ?></p>
-    <a href="<?= base_url('projects/create') ?>" class="btn btn-success mb-3">+ New Project</a>
-    <a href="<?= base_url('logout') ?>" class="btn btn-secondary mb-3">Logout</a>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h2 class="mb-0">Dashboard</h2>
+            <h6 class="mb-0">Location: <?= isset($city) ? $city : 'Unknown' ?>,
+                <?= isset($region) ? $region : 'Unknown' ?></h6>
+        </div>
+        <a href="<?= base_url('logout') ?>" class="btn btn-secondary">Logout</a>
+    </div>
 
+
+    <a href="<?= base_url('projects/create') ?>" class="btn btn-success mb-3">+ New Project</a>
     <div class="row">
         <?php foreach ($projects as $project): ?>
         <div class="col-md-4">

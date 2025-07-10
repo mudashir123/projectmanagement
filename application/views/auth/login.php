@@ -9,6 +9,9 @@
 </head>
 
 <body class="container mt-5">
+    <a href="javascript:history.back()" class="btn btn-secondary mt-3">← Back</a>
+
+    <h1 class="text-center"> Project Management System</h1>
     <h2>Login</h2>
     <form method="post">
         <div class="mb-3">
@@ -17,7 +20,8 @@
         <div class="mb-3">
             <input type="password" name="password" class="form-control" placeholder="Password" required>
         </div>
-        <button class="btn btn-primary">Login</button>
+        <button class="btn btn-primary">Login</button><br>
+
         <a href="<?= base_url('register') ?>">Register</a>
         <?php if (!empty($error)) echo "<p class='text-danger'>$error</p>"; ?>
     </form>
