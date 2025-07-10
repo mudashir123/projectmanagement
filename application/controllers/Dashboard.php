@@ -17,8 +17,11 @@ class Dashboard extends CI_Controller {
         $data['projects'] = $this->Project_model->getAllByUser($user_id);
 
         $reader = new Reader(APPPATH . 'third_party/GeoLite2-City.mmdb');
-        //$ip = $_SERVER['REMOTE_ADDR'];
-        $ip = file_get_contents('https://api64.ipify.org');
+        $ip = $_SERVER['REMOTE_ADDR'];
+
+        if ($ip == '127.0.0.1' || strpos($ip, '192.') === 0 || strpos($ip, '::1') === 0) {
+            $ip = file_get_contents('https://api64.ipify.org');
+        }
 
         try {
             $record = $reader->city($ip);

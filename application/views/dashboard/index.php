@@ -20,17 +20,33 @@
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
                 <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0 d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 d-flex align-items-center">
                         <?= $project->title ?>
-                        <span class="badge bg-light text-dark"><?php
-                        $CI =& get_instance();
-                        $CI->load->model('Task_model');
-                        echo count($CI->Task_model->getByProject($project->id)) ?>
-                            Tasks</span>
+                        <div class="ms-auto">
+                            <a href="<?= base_url('projects/edit/'.$project->id) ?>"
+                                class="btn btn-sm btn-warning">Edit</a>
+                            <a href="<?= base_url('projects/delete/' . $project->id) ?>"
+                                class="btn btn-sm btn-danger float-end ms-2"
+                                onclick="return confirm('Are you sure you want to delete this project?')">Delete</a>
+                        </div>
+
                     </h5>
                 </div>
                 <div class="card-body">
-                    <p><?= $project->description ?></p>
+                    <h6 class="mb-0 d-flex align-items-center">
+                        <?= $project->description ?>
+                        <div class="ms-auto">
+                            <span class="badge bg-light text-dark"><?php
+                                $CI =& get_instance();
+                                $CI->load->model('Task_model');
+                                echo count($CI->Task_model->getByProject($project->id)) ?>
+                                Tasks
+                            </span>
+                        </div>
+
+                    </h6>
+                    <p></p>
+
                     <?php 
                     $CI =& get_instance();
                     $CI->load->model('Task_model');
@@ -46,7 +62,9 @@
                                 <button class="btn btn-sm btn-outline-info edit-task">Edit</button>
                                 <button class="btn btn-sm btn-success save-task d-none">Save</button>
                                 <a href="<?= base_url('tasks/delete/'.$task->id) ?>"
-                                    class="btn btn-sm btn-outline-danger">Delete</a>
+                                    class="btn btn-sm btn-outline-danger"
+                                    onclick="return confirm('Are you sure you want to delete this task?')">Delete</a>
+
                             </div>
                         </div>
 
@@ -57,7 +75,7 @@
                         <div class="input-group">
                             <input type="text" name="title" class="form-control" placeholder="Add Task" required>
                             <input type="hidden" name="project_id" value="<?= $project->id ?>">
-                            <button class="btn btn-sm btn-primary">Add</button>
+                            <button class="btn btn-sm btn-primary">Add Task</button>
                         </div>
                     </form>
                 </div>

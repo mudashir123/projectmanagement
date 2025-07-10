@@ -9,6 +9,7 @@
 </head>
 
 <body class="container mt-5">
+    <a href="javascript:history.back()" class="btn btn-secondary mt-3">← Back</a>
     <h2>Create Project</h2>
     <form method="post" action="<?= base_url('projects/store') ?>">
         <div class="mb-3">
